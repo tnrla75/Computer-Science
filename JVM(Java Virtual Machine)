@@ -5,7 +5,7 @@ JVM은 2가지 특징을 가진다. 자바 기반 어플리케이션을 어느 O
 <br>
 
 ### JVM 메모리 구조
-![](https://www.tcpschool.com/lectures/img_java_programming.png)
+![ㅇㅇ](https://www.tcpschool.com/lectures/img_java_programming.png)
 1. 자바 소스 파일(.java)은 자바 컴파일러에 의해 바이트 코드(.class)로 변환됩니다.
     + 자바 바이트 코드는 컴퓨터는 읽지 못하고 JVM이 읽을 수 있다. 
 2. 변경된 바이트 코드는 클래스 로더에게 전달한다.

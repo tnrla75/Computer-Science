@@ -23,6 +23,9 @@ JVM은 2가지 특징을 가진다. 자바 기반 어플리케이션을 어느 O
 <br>
 
 ![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99B467465B73D15111)
+
+<br>
+
 3. 클래스 로더는 동적 로딩(Dynamic loading)을 통해 필요한 클래스들을 로딩 및 링크하여 각 런타임 데이터 영역에 할당함.
     + JVM이 OS 위에서 실행되면서 할당받는 메모리 영역이 런타임 데이터 영역이다.
     + PC Register, JVM Stack, Native Method Stack 은 스레드마다 하나씩 생성된다

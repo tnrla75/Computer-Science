@@ -9,7 +9,10 @@
 ### Heap 영역 
 
 
-### GC의 특징 stop the world / wheep
+### GC의 특징 stop the world / wheep>
+
+#### stop the world 
+> GC(가비지 컬렉션)을 실행하는 경우 JVM이 어플리케이션을 멈춘다. GC에 사용되는 스레드를 제외한 모든 스레드 또한 멈춘다.
 
 
 ### GC의 동작 방식 new old generation

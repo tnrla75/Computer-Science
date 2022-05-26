@@ -84,6 +84,10 @@
  
 ![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FEUHoC%2Fbtqwk9zJiqP%2FOcKI4TxCvLAB2YHxZP9aY1%2Fimg.png)
 
+# 추가
+cms에서 쓰레드 언제 한개쓰고 언제 유휴상태 없는지 
+g1에서 humonuos
+
 
 
 

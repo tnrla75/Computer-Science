@@ -78,11 +78,20 @@
 ![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbA5UD6%2Fbtqwl6pdvpX%2F8hPyoUpNyo7QvtB1tkVwmK%2Fimg.png)
 
 + G1 GC
- > Old , Young 영역의 개념이 없다. 하나 이상의 Resion 에서 객체를 복사해 다른 Reison 으로 이동 시키는 Resion 개념을 도입. CMS Collector의 CPU 리소스 및 메모리 파편화 단점 해결
+ > Old , Young 영역의 개념이 없다. 하나 이상의 Resion 에서 객체를 복사해 다른 Reison 으로 이동 시키는 Region 개념을 도입. CMS Collector의 CPU 리소스 및 메모리 파편화 단점 해결
  > 
  > Heap에 전역적으로 Marking 하고 가장 많은 공간이 있는곳 부터 메모리 회수 진행
+ > 
+ > Humongous와 Availabe/Unused라는 2가지 역할을 추가하였다. 
+  + humonguous는 region 크기의 50%를 초과하는 객체를 저장하는 region을 의미한다
+  + Availabe/Unused는 사용되지 않은 Region을 의미한다. 
  
 ![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FEUHoC%2Fbtqwk9zJiqP%2FOcKI4TxCvLAB2YHxZP9aY1%2Fimg.png)
+
+
+G1 GC에서는 Eden, Survivor, Old 역할에 더해 Humongous와 Availabe/Unused라는 2가지 역할을 추가하였다. Humonguous는 Region 크기의 50%를 초과하는 객체를 저장하는 Region을 의미하며, Availabe/Unused는 사용되지 않은 Region을 의미한다. 
+G1 GC의 핵심은 Heap을 동일한 크기의 Region으로 나누고, 가비지가 많은 Region에 대해 우선적으로 GC를 수행하는 것이다. 그리고 G1 GC도 다른 가비지 컬렉션과 마찬가지로 2가지 GC(Minor GC, Major GC)로 나누어 수행되는데, 각각에 대해 살펴보도록 하자.
+
 
 # 추가
 cms에서 쓰레드 언제 한개쓰고 언제 유휴상태 없는지 

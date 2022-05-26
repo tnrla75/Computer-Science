@@ -75,6 +75,9 @@
  3. Remark단계에서 변경되거나 추가된 객체를 확인. 
  4. Concurrent Sweep 단계애서참조 되지 않는 객체를 정리.
 
+
+그렇지만 CPU 소모량이 많고, 백그라운드 쓰레드는 정렬(compaction)을 하지 못하기 때문에 메모리 단편화가 생긴다. 그리고 CMS 백그라운드 쓰레드가 작업을 완료할 만큼 충분한 CPU 얻지 못하거나 힙에 메모리 단편화가 많으면 CMS는 Serial Collector로 동작한다. 즉 싱글 쓰레드를 사용해 전체 애플리케이션 쓰레드를 멈추고 Old Generation 영역을 정리한다. 그런 후 작업이 끝나면 다시 CMS 컬렉터로 동작한다.
+
 ![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbA5UD6%2Fbtqwl6pdvpX%2F8hPyoUpNyo7QvtB1tkVwmK%2Fimg.png)
 
 + G1 GC
@@ -82,20 +85,18 @@
  > 
  > Heap에 전역적으로 Marking 하고 가장 많은 공간이 있는곳 부터 메모리 회수 진행
  > 
- > Humongous와 Availabe/Unused라는 2가지 역할을 추가하였다. 
+ > Eden, Survivor, Old 역할에 더해 Humongous와 Availabe/Unused라는 2가지 역할을 추가하였다. 
   + humonguous는 region 크기의 50%를 초과하는 객체를 저장하는 region을 의미한다
   + Availabe/Unused는 사용되지 않은 Region을 의미한다. 
  
 ![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FEUHoC%2Fbtqwk9zJiqP%2FOcKI4TxCvLAB2YHxZP9aY1%2Fimg.png)
 
 
-G1 GC에서는 Eden, Survivor, Old 역할에 더해 Humongous와 Availabe/Unused라는 2가지 역할을 추가하였다. Humonguous는 Region 크기의 50%를 초과하는 객체를 저장하는 Region을 의미하며, Availabe/Unused는 사용되지 않은 Region을 의미한다. 
-G1 GC의 핵심은 Heap을 동일한 크기의 Region으로 나누고, 가비지가 많은 Region에 대해 우선적으로 GC를 수행하는 것이다. 그리고 G1 GC도 다른 가비지 컬렉션과 마찬가지로 2가지 GC(Minor GC, Major GC)로 나누어 수행되는데, 각각에 대해 살펴보도록 하자.
 
 
 # 추가
 cms에서 쓰레드 언제 한개쓰고 언제 유휴상태 없는지 
-g1에서 humonuos
+
 
 
 

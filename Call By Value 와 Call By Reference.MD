@@ -1,6 +1,13 @@
-##Call By Value 와 Call By Reference
+## Call By Value 와 Call By Reference
 
-###Call By Value
-> 값에 의한 호출
+### Call By value
+> 값에 의한 호출, 값만 전달하는 방식
 
- + 
+ + 함수가 호출될 때, 메모리 공간 안에서는 함수를 위한 별도의 임시공간이 생성됨 (종료 시 공간이 사라짐)
+ + 메소드 호출 시에 사용되ㅏ는 인자의 메모리에 저장되어 있는 값(value)을 복사하여 보낸다.
+
+### Call By Reference
+> 참조에 의한 호출, 
+
++ 메소드 호출 시에 사용되는 인자값의 메모리에 저장되어있는 주소(Address)를 복사하여 보낸다
+
